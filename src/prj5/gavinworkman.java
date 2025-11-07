@@ -1,15 +1,13 @@
 package prj5;
+
 public class gavinworkman
 {
 
-    public gavinworkman()
+    public static void main(String[] args)
     {
-        // TODO Auto-generated constructor stub
+
+        System.out.println("Glad to be on your team");
+
     }
-    //~ Fields ................................................................
-
-    //~ Constructors ..........................................................
-
-    //~Public  Methods ........................................................
 
 }

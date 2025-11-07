@@ -1,10 +1,12 @@
 package prj5;
+
 public class timothypark
 {
-    //~ Fields ................................................................
+    public static void main(String[] args)
+    {
 
-    //~ Constructors ..........................................................
+        System.out.println("Glad to be on your team");
 
-    //~Public  Methods ........................................................
+    }
 
 }
