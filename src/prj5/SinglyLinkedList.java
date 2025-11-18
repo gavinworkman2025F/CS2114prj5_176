@@ -60,9 +60,17 @@ public class SinglyLinkedList<T>
 
         size++;
     }
-    
-    public T getHead() {
-        return head.getData();
+
+
+    public Node<T> getHead()
+    {
+        return head;
+    }
+
+
+    public boolean isEmpty()
+    {
+        return size == 0;
     }
 
 }
