@@ -19,7 +19,7 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- * Sets the engagement metrics and calculates the engagement level
+ * Sets the engagement metrics and calculates the engagement rate
  * 
  * @author timothypark
  * @version Nov 18, 2025
@@ -27,10 +27,8 @@ package prj5;
 public class EngagementSet
     implements Comparable<EngagementSet>
 {
-    private int comments;
-    private int likes;
-    private int followers;
-    private int views;
+    private double traditionalEngagementRate;
+    private double reachEngagementRate;
     private String month;
 
     // ----------------------------------------------------------
@@ -45,35 +43,37 @@ public class EngagementSet
      */
     public EngagementSet(int c, int l, int f, int v, String m)
     {
-        comments = c;
-        likes = l;
-        followers = f;
-        views = v;
+        double x = (c + l) * 100.0 / f;
+        traditionalEngagementRate = Math.round(x * 10.0) / 10.0;
+
+        double y = (c + l) * 100.0 / v;
+        reachEngagementRate = Math.round(y * 10.0) / 10.0;
+
         month = m;
     }
 
 
     // ----------------------------------------------------------
     /**
-     * Calculates the traditional engagement
+     * Gets the traditional engagement
      * 
      * @return the traditional engagement
      */
-    public int calculateTraditionalEngagement()
+    public double calculateTraditionalEngagement()
     {
-        return 0;
+        return traditionalEngagementRate;
     }
 
 
     // ----------------------------------------------------------
     /**
-     * Calcualtes the reach engagement
+     * Gets the reach engagement
      * 
      * @return the reach engagement
      */
-    public int calculateReachEngagement()
+    public double calculateReachEngagement()
     {
-        return 0;
+        return reachEngagementRate;
     }
 
 
@@ -92,7 +92,16 @@ public class EngagementSet
     @Override
     public int compareTo(EngagementSet o)
     {
-        // TODO Auto-generated method stub
+        if (this.calculateTraditionalEngagement() > o
+            .calculateTraditionalEngagement())
+        {
+            return 1;
+        }
+        else if (this.calculateTraditionalEngagement() < o
+            .calculateTraditionalEngagement())
+        {
+            return -1;
+        }
         return 0;
     }
 
