@@ -28,3 +28,4 @@ replay_pid*
 .uuid
 .needspull
 .repo
+.settings/org.eclipse.jdt.core.prefs

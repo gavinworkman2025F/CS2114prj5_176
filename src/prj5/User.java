@@ -1,0 +1,122 @@
+package prj5;
+
+// -------------------------------------------------------------------------
+/**
+ * Creates a new user object with values and engagement sets over different
+ * months.
+ * 
+ * @author mjseo
+ * @version Nov 18, 2025
+ */
+public class User
+    implements Comparable<User>
+{
+    private String username;
+    private String channelName;
+    private String country;
+    private int numPosts;
+    private SinglyLinkedList<EngagementSet> engagementSets;
+
+    // ----------------------------------------------------------
+    /**
+     * Instantiates a new user with an empty engagementSet.
+     * 
+     * @param username
+     *            the name of the user
+     * @param channelName
+     *            the channel name of the user
+     * @param country
+     *            the country of the user
+     * @param numPosts
+     *            the number of posts by the user
+     */
+    public User(
+        String username,
+        String channelName,
+        String country,
+        int numPosts)
+    {
+        this.username = username;
+        this.channelName = channelName;
+        this.country = country;
+        this.numPosts = numPosts;
+        engagementSets = new SinglyLinkedList<EngagementSet>();
+
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the username of the user
+     * 
+     * @return the username
+     */
+    public String getUsername()
+    {
+        return username;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the name of the channel of the user
+     * 
+     * @return the channel
+     */
+    public String getChannelName()
+    {
+        return channelName;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the country of the user
+     * 
+     * @return the country
+     */
+    public String getCountry()
+    {
+        return country;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for number of posts
+     * 
+     * @return the number of posts
+     */
+    public int getPosts()
+    {
+        return numPosts;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for engagementSets
+     * 
+     * @return the engagementSets
+     */
+    public SinglyLinkedList<EngagementSet> getEngagementSets()
+    {
+        return engagementSets;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Compares two users by comparing their name. eg.) A>B
+     * 
+     * @return A positive number if name is greater than object compared to,
+     *             negative is less, and 0 ifequal.
+     */
+    public int compareTo(User other)
+    {
+        String name1 = this.getUsername();
+        String name2 = other.getUsername();
+
+        return name1.compareTo(name2);
+    }
+}
