@@ -73,4 +73,64 @@ public class SinglyLinkedList<T>
         return size == 0;
     }
 
+
+    public boolean remove(T data)
+    {
+        if (isEmpty())
+        {
+            return false;
+        }
+        if (head.getData().equals(data))
+        {
+            head = head.getNext();
+            return true;
+        }
+
+        Node<T> curr = head;
+
+        while (!curr.getNext().getData().equals(data))
+        {
+            curr = curr.getNext();
+        }
+
+        curr.setNext(curr.getNext().getNext());
+        return true;
+    }
+
+
+    public boolean contains(T data)
+    {
+        if (isEmpty() || data == null)
+        {
+            return false;
+        }
+
+        if (head.getData().equals(data))
+        {
+            return true;
+        }
+
+        Node<T> curr = head;
+
+        while (!curr.getNext().getData().equals(data))
+        {
+            curr = curr.getNext();
+        }
+
+        if (curr.getNext() == null) // we got to end of list w/o finding data
+        {
+            return false;
+        }
+
+        return true; // we aren't at the end of the list, we found the data
+
+    }
+
+
+    public void clear()
+    {
+        head = null;
+        size = 0;
+    }
+
 }
