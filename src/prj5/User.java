@@ -1,5 +1,20 @@
 package prj5;
 
+// Project 5 Fall 2025
+// Virginia Tech Honor Code Pledge:
+
+//
+
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+
+// -- Matthew Seo (mjseo)
+// LLM Statement:
+
+// I have not used any assistance for the assignment beyond course resources and
+// staff.
 // -------------------------------------------------------------------------
 /**
  * Creates a new user object with values and engagement sets over different
@@ -47,6 +62,7 @@ public class User
         engagement = new EngagementSet(comments, likes, followers, views);
 
     }
+
 
     // ----------------------------------------------------------
     /**
@@ -117,8 +133,8 @@ public class User
      */
     public int compareTo(User other)
     {
-        String name1 = this.getUsername();
-        String name2 = other.getUsername();
+        String name1 = this.getChannelName();
+        String name2 = other.getChannelName();
 
         return name1.compareTo(name2);
     }

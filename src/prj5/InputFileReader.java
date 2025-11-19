@@ -3,10 +3,25 @@ package prj5;
 import java.util.Scanner;
 import student.IOHelper;
 
+// Project 5 Fall 2025
+// Virginia Tech Honor Code Pledge:
+
+//
+
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+
+// -- Matthew Seo (mjseo)
+// LLM Statement:
+
+// I have not used any assistance for the assignment beyond course resources and
+// staff.
+
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * Reads the files and sorts users into their respective months
  * 
  * @author mjseo
  * @version Nov 18, 2025
@@ -14,14 +29,28 @@ import student.IOHelper;
 public class InputFileReader
 {
     private String inputFile;
-    private SinglyLinkedList<User> users;
+    private SinglyLinkedList<Month> months;
 
+    // ----------------------------------------------------------
+    /**
+     * Creates a new input file reader
+     * 
+     * @param inputFile
+     *            the input file name to put int
+     */
     public InputFileReader(String inputFile)
     {
-            
+        this.inputFile = inputFile;
     }// new DataWindow(EngagementSet)
 
 
+    // ----------------------------------------------------------
+    /**
+     * Reads the file
+     * 
+     * @param file
+     *            the name of the file to be read
+     */
     public void readInputFile(String file)
     {
         Scanner inStream = IOHelper.createScanner(inputFile);
@@ -29,7 +58,7 @@ public class InputFileReader
         boolean first = true;
         SinglyLinkedList<User> users = new SinglyLinkedList<User>();
         String prevMonth = null;
-        SinglyLinkedList<Month> months = new SinglyLinkedList<Month>();
+        months = new SinglyLinkedList<Month>();
         while (inStream.hasNextLine())
         {
 
@@ -46,24 +75,42 @@ public class InputFileReader
             int comments = toInt(values[8]);
             int views = toInt(values[9]);
 
-            if(first) {
+            if (first)
+            {
                 prevMonth = month;
                 first = false;
             }
-            if(month != prevMonth) {
+            if (month != prevMonth)
+            {
                 Month newMonthSet = new Month(users, prevMonth);
                 months.add(newMonthSet);
                 users = new SinglyLinkedList<User>();
                 prevMonth = month;
             }
-            
-            users.add(new User(username, channel, country, comments, likes, followers, views, posts));
-            
-            
+
+            users.add(
+                new User(
+                    username,
+                    channel,
+                    country,
+                    comments,
+                    likes,
+                    followers,
+                    views,
+                    posts));
+
         } // end while
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Turns string into int
+     * 
+     * @param str
+     *            the string to turn to int
+     * @return the int value of the string
+     */
     private int toInt(String str)
     {
 
@@ -80,12 +127,13 @@ public class InputFileReader
 
     // ----------------------------------------------------------
     /**
-     * Getter for the users LinkedList
-     * @return the users
+     * Getter for the months singly linked list
+     * 
+     * @return the months
      */
-    public SinglyLinkedList<User> getUsers()
+    public SinglyLinkedList<Month> getMonths()
     {
-        return users;
+        return months;
     }
 
 }
