@@ -14,6 +14,10 @@ public class SinglyLinkedList<T>
     private Node<T> head;
     private int size;
 
+    // ----------------------------------------------------------
+    /**
+     * Create a new SinglyLinkedList object.
+     */
     public SinglyLinkedList()
     {
         head = null;
@@ -21,12 +25,27 @@ public class SinglyLinkedList<T>
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * getter for the size of a list
+     * 
+     * @return the size of the linked list
+     */
     public int size()
     {
         return size;
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * 
+     * @param index
+     *            the index to add the data at in the list
+     * @param data
+     *            the data to add at the specified index
+     */
     public void add(int index, T data)
     {
 
@@ -60,6 +79,13 @@ public class SinglyLinkedList<T>
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * adds data to the front of a list
+     * 
+     * @param data
+     *            the data to add
+     */
     public void add(T data)
     {
         if (head == null)
@@ -78,18 +104,38 @@ public class SinglyLinkedList<T>
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * getter for the head field
+     * 
+     * @return the first node in the list
+     */
     public Node<T> getHead()
     {
         return head;
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * checks if the list is empty or not
+     * 
+     * @return true if its empty, false if now
+     */
     public boolean isEmpty()
     {
         return size == 0;
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Iterates through list and removes the first found instance from the list
+     * 
+     * @param data
+     *            the data of the node to be removed from the list
+     * @return true if it works, false if not
+     */
     public boolean remove(T data)
     {
         if (isEmpty())
@@ -127,6 +173,14 @@ public class SinglyLinkedList<T>
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * iterates through the list to check if a specified value is present
+     * 
+     * @param data
+     *            the value to look for in the list
+     * @return true if found, false if not
+     */
     public boolean contains(T data)
     {
         if (data == null)
@@ -153,6 +207,10 @@ public class SinglyLinkedList<T>
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * empties the list
+     */
     public void clear()
     {
         head = null;

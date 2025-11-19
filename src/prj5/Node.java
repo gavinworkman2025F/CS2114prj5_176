@@ -1,33 +1,92 @@
 package prj5;
+
+// -------------------------------------------------------------------------
+/**
+ * Contains the required methods for a node to be used in a singly linked list
+ * 
+ * @param <T>
+ *            the type of node
+ * @author gjwor
+ * @version Nov 18, 2025
+ */
 public class Node<T>
 {
     private T data;
     private Node<T> next;
-    
+
+    // ----------------------------------------------------------
+    /**
+     * Create a new Node object.
+     */
     public Node()
     {
         data = null;
         next = null;
     }
-    
-    public Node(T d, Node<T> n) {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Create a new Node object.
+     * 
+     * @param d
+     *            the data in the node
+     * @param n
+     *            the next node reference in the list
+     */
+    public Node(T d, Node<T> n)
+    {
         data = d;
         next = n;
     }
-    
-    public Node<T> getNext() {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the next node in the list
+     * 
+     * @return the next node in the list
+     */
+    public Node<T> getNext()
+    {
         return next;
     }
-    
-    public void setNext(Node<T> n) {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Sets the next variable of a node
+     * 
+     * @param n
+     *            the new next node
+     */
+    public void setNext(Node<T> n)
+    {
         next = n;
     }
-    
-    public T getData() {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the data in a node
+     * 
+     * @return the data variable in the node
+     */
+    public T getData()
+    {
         return data;
     }
-    
-    public void setData(T d) {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Sets the data variable of a node
+     * 
+     * @param d
+     *            the new data for the node
+     */
+    public void setData(T d)
+    {
         data = d;
     }
 

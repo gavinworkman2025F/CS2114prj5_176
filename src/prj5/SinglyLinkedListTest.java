@@ -2,6 +2,13 @@ package prj5;
 
 import student.TestCase;
 
+// -------------------------------------------------------------------------
+/**
+ * Tests the methods of the SinglyLinkedList class
+ * 
+ * @author gjwor !!include in ai statement
+ * @version Nov 18, 2025
+ */
 public class SinglyLinkedListTest
     extends TestCase
 {

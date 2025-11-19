@@ -2,7 +2,14 @@ package prj5;
 
 import student.TestCase;
 
-public class nodeTest
+// -------------------------------------------------------------------------
+/**
+ * Tests the methods of the node class
+ * 
+ * @author gjwor
+ * @version Nov 18, 2025
+ */
+public class NodeTest
     extends TestCase
 {
 
@@ -16,6 +23,10 @@ public class nodeTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * tests the getNext method
+     */
     public void testGetNext()
     {
         assertEquals(test2, test1.getNext());
@@ -23,6 +34,10 @@ public class nodeTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * tests the getData method
+     */
     public void testGetData()
     {
         assertEquals("test1", test1.getData());
@@ -31,6 +46,10 @@ public class nodeTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * tests the setData method
+     */
     public void testSetData()
     {
         test1.setData("different");
@@ -38,6 +57,10 @@ public class nodeTest
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * tests the setNext method
+     */
     public void testSetNext()
     {
         Node<String> test3 = new Node<String>("test3", null);
