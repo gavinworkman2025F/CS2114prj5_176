@@ -29,6 +29,7 @@ public class InputFileReader
         boolean first = true;
         SinglyLinkedList<User> users = new SinglyLinkedList<User>();
         String prevMonth = null;
+        SinglyLinkedList<Month> months = new SinglyLinkedList<Month>();
         while (inStream.hasNextLine())
         {
 
@@ -51,6 +52,7 @@ public class InputFileReader
             }
             if(month != prevMonth) {
                 Month newMonthSet = new Month(users, prevMonth);
+                months.add(newMonthSet);
                 users = new SinglyLinkedList<User>();
                 prevMonth = month;
             }
