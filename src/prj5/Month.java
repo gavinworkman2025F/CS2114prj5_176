@@ -12,7 +12,7 @@ public class Month
     private SinglyLinkedList<User> usersName;
     private SinglyLinkedList<User> usersTraditional;
     private SinglyLinkedList<User> usersReach;
-    
+
     private String name;
 
     // ----------------------------------------------------------
@@ -27,6 +27,9 @@ public class Month
     public Month(SinglyLinkedList<User> input, String month)
     {
         name = month;
+        usersName = new SinglyLinkedList<User>();
+        usersTraditional = new SinglyLinkedList<User>();
+        usersReach = new SinglyLinkedList<User>();
         sortChannelName(input);
         sortEngagementTraditional(input);
         sortEngagementReach(input);
@@ -39,7 +42,7 @@ public class Month
      */
     public void sortChannelName(SinglyLinkedList<User> input)
     {
-        
+
     }
 
 
@@ -49,7 +52,7 @@ public class Month
      */
     public void sortEngagementTraditional(SinglyLinkedList<User> input)
     {
-        
+
     }
 
 
