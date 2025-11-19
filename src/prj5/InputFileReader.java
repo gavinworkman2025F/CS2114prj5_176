@@ -158,24 +158,104 @@ public class InputFileReader
     }
 
 
-    public int calcQOne(String n)
-    { 
+    // ----------------------------------------------------------
+    /**
+     * Calculates  Q1
+     * @param n is name of user
+     * @return traditional and reach engagement rates for Q1
+     */
+    @SuppressWarnings("null")
+    public String calcQOne(String n)
+    {
         int totalComments = 0;
         int totalLikes = 0;
         int totalFollowers = 0;
         int totalViews = 0;
-        
+
+        // january
         Node<Month> curr = months.getHead();
-        while(curr.getData().getName().equals("January")&&curr!=null)     {
+        while (!curr.getData().getMonthName().equals("January") && curr != null)
+        {
             curr = curr.getNext();
         }
-        SinglyLinkedList<User> userNames = curr.getNames();
+        SinglyLinkedList<User> userNames = curr.getData().getNames();
         Node<User> x = userNames.getHead();
-        while(x.getData().getUsername().equals(n) && x!=null) {
-            x=x.getNext();
+        while (!x.getData().getUsername().equals(n) && x != null)
+        {
+            x = x.getNext();
+        }
+        if (x != null)
+        {
+            totalComments += x.getData().getEngagementSet().getComments();
+            totalLikes += x.getData().getEngagementSet().getLikes();
+            totalViews += x.getData().getEngagementSet().getLikes();
+        }
+
+        // february
+        curr = months.getHead();
+        while (!curr.getData().getMonthName().equals("February") && curr != null)
+        {
+            curr = curr.getNext();
+        }
+        x = userNames.getHead();
+        while (!x.getData().getUsername().equals(n) && x != null)
+        {
+            x = x.getNext();
+        }
+        if (x != null)
+        {
+            totalComments += x.getData().getEngagementSet().getComments();
+            totalLikes += x.getData().getEngagementSet().getLikes();
+            totalViews += x.getData().getEngagementSet().getLikes();
+        }
+
+        // march
+        curr = months.getHead();
+        while (!curr.getData().getMonthName().equals("February") && curr != null)
+        {
+            curr = curr.getNext();
+        }
+        x = userNames.getHead();
+        while (!x.getData().getUsername().equals(n) && x != null)
+        {
+            x = x.getNext();
+        }
+        if (x != null)
+        {
+            totalComments += x.getData().getEngagementSet().getComments();
+            totalLikes += x.getData().getEngagementSet().getLikes();
+            totalFollowers += x.getData().getEngagementSet().getFollowers();
+            totalViews += x.getData().getEngagementSet().getLikes();
+        }
+        String output = "";
+        
+        if (totalFollowers != 0)
+        {
+            double z = (totalComments + totalLikes) * 100.0 / totalFollowers;
+            output+=String.valueOf(Math.round(z * 10.0) / 10.0);
+        }
+        else {
+            output +="N/A";
         }
         
+        output += ".";
         
+        if (totalViews != 0)
+        {
+            double z = (totalComments + totalLikes) * 100.0 / totalViews;
+            output+=String.valueOf(Math.round(z * 10.0) / 10.0);
+        }
+        else {
+            output +="N/A";
+        }
+
+        return output;
+    }
+    
+    public String toString() {
+        //use calcQOne to get the output for each user (i.e. "3000.4000") and then split the string into trad "3000" and reach "4000"
+        //then add to string with format
+        return "";
     }
 
 }

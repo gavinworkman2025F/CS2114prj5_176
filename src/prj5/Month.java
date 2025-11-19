@@ -137,7 +137,7 @@ public class Month
      * 
      * @return month
      */
-    public String getName()
+    public String getMonthName()
     {
         return name;
     }
