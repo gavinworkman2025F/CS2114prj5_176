@@ -25,7 +25,8 @@ public class Input2023FReferenceTest
 
         fileData = null;
     }
-    
+
+
     /**
      * Test the program with data the students haven't seen Gathers the output
      * from StdOut and compares it to the expect output (stored in
@@ -104,7 +105,8 @@ public class Input2023FReferenceTest
             systemOut().getHistory());
 
     }
-    
+
+
     /**
      * Test the program with data the students haven't seen Gathers the output
      * from StdOut and compares it to the expect output (stored in
@@ -145,9 +147,6 @@ public class Input2023FReferenceTest
     }
 
 
-
-    
-    
     /**
      * Test the program with the data provided for students to use
      */
@@ -232,7 +231,8 @@ public class Input2023FReferenceTest
                     {
                         System.out.println(
                             "Expected: " + expectedSplit[1] + " but got "
-                                + testResultSplit[1] + " on " + expectedSplit[0]) ;
+                                + testResultSplit[1] + " on "
+                                + expectedSplit[0]);
                         fail(
                             "Math error for a calculation on "
                                 + expectedSplit[0]);

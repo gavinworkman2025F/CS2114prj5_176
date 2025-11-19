@@ -368,7 +368,8 @@ public class InputFileReader
             Node<User> temp = sorted.getHead();
             int insertIndex = 0;
             double currentReach;
-            if (!calcQOneReach(current.getData().getChannelName()).equals("N/A"))
+            if (!calcQOneReach(current.getData().getChannelName())
+                .equals("N/A"))
             {
                 currentReach = Double.parseDouble(
                     calcQOneReach(current.getData().getChannelName()));
