@@ -1,5 +1,13 @@
 package prj5;
 
+// -------------------------------------------------------------------------
+/**
+ * Contains the necessary methods for the SinglyLinkedList data structure
+ * 
+ * @param <T>
+ * @author gjwor
+ * @version Nov 18, 2025
+ */
 public class SinglyLinkedList<T>
 {
 
