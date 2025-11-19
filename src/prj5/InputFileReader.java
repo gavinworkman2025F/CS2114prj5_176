@@ -30,6 +30,7 @@ public class InputFileReader
 {
     private String inputFile;
     private SinglyLinkedList<Month> months;
+    private String[] names = new String[4];
 
     // ----------------------------------------------------------
     /**
@@ -66,6 +67,26 @@ public class InputFileReader
             String[] values = line.split(",");
             String month = values[0];
             String username = values[1];
+
+            boolean contains = false;
+            for (int i = 0; i < 4; i++)
+            {
+                if (names[i].equals(username))
+                {
+                    contains = true;
+                }
+            }
+            if (contains == false)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (names[i] == null)
+                    {
+                        names[i] = username;
+                    }
+                }
+            }
+
             String channel = values[2];
             String country = values[3];
             String mainTopic = values[4];
@@ -134,6 +155,27 @@ public class InputFileReader
     public SinglyLinkedList<Month> getMonths()
     {
         return months;
+    }
+
+
+    public int calcQOne(String n)
+    { 
+        int totalComments = 0;
+        int totalLikes = 0;
+        int totalFollowers = 0;
+        int totalViews = 0;
+        
+        Node<Month> curr = months.getHead();
+        while(curr.getData().getName().equals("January")&&curr!=null)     {
+            curr = curr.getNext();
+        }
+        SinglyLinkedList<User> userNames = curr.getNames();
+        Node<User> x = userNames.getHead();
+        while(x.getData().getUsername().equals(n) && x!=null) {
+            x=x.getNext();
+        }
+        
+        
     }
 
 }
