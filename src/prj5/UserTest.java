@@ -4,22 +4,37 @@ import student.TestCase;
 
 // -------------------------------------------------------------------------
 /**
- *  Test User class
+ * Test User class
  * 
- *  @author mjseo
- *  @version Nov 18, 2025
+ * @author mjseo
+ * @version Nov 18, 2025
  */
-public class UserTest extends TestCase
+public class UserTest
+    extends TestCase
 {
     private User user1;
     private User user2;
-    
-    public void setUp() {
-        user1 = new User("1username", "1channelName", "1country", 1, 1, 1, 1, 1);
-        user2 = new User("2username", "2channelName", "2country", 2, 2, 2, 2, 2);
+
+    // ----------------------------------------------------------
+    /**
+     * Initializes users to be used in testing.
+     */
+    public void setUp()
+    {
+        user1 =
+            new User("1username", "1channelName", "1country", 1, 1, 1, 1, 1);
+        user2 =
+            new User("2username", "2channelName", "2country", 2, 2, 2, 2, 2);
     }
-    
-    public void testGetters() {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Test getUsername(), getChannelName(), getCountry(), getPosts(),
+     * getEngagementSet()
+     */
+    public void testGetters()
+    {
         assertEquals(user1.getUsername(), "1username");
         assertEquals(user1.getChannelName(), "1channelName");
         assertEquals(user1.getCountry(), "1country");
@@ -27,11 +42,17 @@ public class UserTest extends TestCase
         assertNotNull(user1.getEngagementSet());
         assertEquals(user1.getEngagementSet().getComments(), 1);
     }
-    
-    public void testCompareTo() {
+
+
+    // ----------------------------------------------------------
+    /**
+     * Tests the compareTo for User which compares based off of channel name
+     */
+    public void testCompareTo()
+    {
         assertTrue(user1.compareTo(user2) < 0);
         assertTrue(user2.compareTo(user1) > 0);
-        assertTrue(user1.compareTo(user1) == 0);
+        assertEquals(user1.compareTo(user1), 0);
     }
 
 }
