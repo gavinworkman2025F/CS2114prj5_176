@@ -62,6 +62,10 @@ public class EngagementSet
      */
     public double calculateTraditionalEngagement()
     {
+        if (followers <= 0)
+        {
+            return 0;
+        }
         double x = (comments + likes) * 100.0 / followers;
         return Math.round(x * 10.0) / 10.0;
     }
@@ -75,6 +79,11 @@ public class EngagementSet
      */
     public double calculateReachEngagement()
     {
+        if (views <= 0)
+        {
+            return 0;
+        }
+
         double x = (comments + likes) * 100.0 / views;
         return Math.round(x * 10.0) / 10.0;
     }
