@@ -49,10 +49,33 @@ public class Month
     // ----------------------------------------------------------
     /**
      * Sorts by traditional engagement
+     * 
+     * @param input
+     *            user list to be sorted
      */
     public void sortEngagementTraditional(SinglyLinkedList<User> input)
     {
+        Node<User> current = input.getHead();
 
+        while (current != null)
+        {
+            User data = current.getData();
+            Node<User> temp = usersTraditional.getHead();
+
+            int insertIndex = 0;
+
+            while (temp != null && temp.getData().getEngagementSet()
+                .compareTo(data.getEngagementSet()) > 0)
+            {
+                temp = temp.getNext();
+                insertIndex++;
+            }
+
+            // Insert at calculated index
+            usersTraditional.add(insertIndex, data);
+
+            current = current.getNext();
+        }
     }
 
 
