@@ -15,7 +15,7 @@ public class User
     private String channelName;
     private String country;
     private int numPosts;
-    private SinglyLinkedList<EngagementSet> engagementSets;
+    private EngagementSet engagement;
 
     // ----------------------------------------------------------
     /**
@@ -34,16 +34,19 @@ public class User
         String username,
         String channelName,
         String country,
+        int comments,
+        int likes,
+        int followers,
+        int views,
         int numPosts)
     {
         this.username = username;
         this.channelName = channelName;
         this.country = country;
         this.numPosts = numPosts;
-        engagementSets = new SinglyLinkedList<EngagementSet>();
+        engagement = new EngagementSet(comments, likes, followers, views);
 
     }
-
 
     // ----------------------------------------------------------
     /**
@@ -99,9 +102,9 @@ public class User
      * 
      * @return the engagementSets
      */
-    public SinglyLinkedList<EngagementSet> getEngagementSets()
+    public EngagementSet getEngagementSets()
     {
-        return engagementSets;
+        return engagement;
     }
 
 

@@ -18,7 +18,7 @@ public class InputFileReader
 
     public InputFileReader(String inputFile)
     {
-
+            
     }// new DataWindow(EngagementSet)
 
 
@@ -26,6 +26,10 @@ public class InputFileReader
     {
         Scanner inStream = IOHelper.createScanner(inputFile);
         inStream.nextLine();// skip header
+        boolean first = true;
+        SinglyLinkedList<User> users = new SinglyLinkedList<User>();
+        String currMonth = null;
+        String prevMonth = null;
         while (inStream.hasNextLine())
         {
 
@@ -42,11 +46,19 @@ public class InputFileReader
             int comments = toInt(values[8]);
             int views = toInt(values[9]);
 
-            // if the user is already in the list then just add the new
-            // engagegment set
-            users.add(new User(month, username, channel, country, mainTopic));
-            // else add both user and users new engagement set
-
+            if(first) {
+                currMonth = month;
+                prevMonth = currMonth;
+            }
+            if(currMonth != prevMonth) {
+                Month newMonthSet = new Month(users, prevMonth);
+                users = new SinglyLinkedList<User>();
+            }
+            
+            currMonth = month;
+            users.add(new User(username, channel, country, comments, likes, followers, views, posts));
+            
+            
         } // end while
     }
 
@@ -65,6 +77,11 @@ public class InputFileReader
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Getter for the users LinkedList
+     * @return the users
+     */
     public SinglyLinkedList<User> getUsers()
     {
         return users;
