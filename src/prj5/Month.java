@@ -132,50 +132,5 @@ public class Month
     }
 
 
-    // ----------------------------------------------------------
-    /**
-     * Gets the name of the month
-     * 
-     * @return month
-     */
-    public String getName()
-    {
-        return name;
-    }
 
-
-    // ----------------------------------------------------------
-    /**
-     * Get users sorted by names
-     * 
-     * @return list sorted by names
-     */
-    public SinglyLinkedList<User> getNames()
-    {
-        return usersName;
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * Get users sorted by traditional engagement
-     * 
-     * @return list sorted by traditional engagement
-     */
-    public SinglyLinkedList<User> getTraditional()
-    {
-        return usersReach;
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * Get users sorted by reach engagement
-     * 
-     * @return list sorted by reach engagement
-     */
-    public SinglyLinkedList<User> getReach()
-    {
-        return usersReach;
-    }
 }
