@@ -54,10 +54,7 @@ public class ProjectRunner
         boolean showGUI = false;
         if (showConsole)
         {
-            /*
-             * TODO: For intermediate Submission - Should print the data on the
-             * console
-             */
+            System.out.println(filer.toString());
         }
         if (showGUI)
         {

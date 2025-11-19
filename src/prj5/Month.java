@@ -131,6 +131,7 @@ public class Month
         }
     }
 
+
     // ----------------------------------------------------------
     /**
      * Gets the name of the month
@@ -162,6 +163,18 @@ public class Month
      * @return list sorted by traditional engagement
      */
     public SinglyLinkedList<User> getTraditional()
+    {
+        return usersTraditional;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Get users sorted by reach engagement
+     * 
+     * @return list sorted by reach engagement
+     */
+    public SinglyLinkedList<User> getReach()
     {
         return usersReach;
     }
