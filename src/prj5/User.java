@@ -133,8 +133,8 @@ public class User
      */
     public int compareTo(User other)
     {
-        String name1 = this.getUsername();
-        String name2 = other.getUsername();
+        String name1 = this.getChannelName();
+        String name2 = other.getChannelName();
 
         return name1.compareTo(name2);
     }
