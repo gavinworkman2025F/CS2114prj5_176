@@ -9,8 +9,10 @@ package prj5;
  */
 public class Month
 {
-    private SinglyLinkedList<User> users;
-    private SinglyLinkedList<User> sortedUsers;
+    private SinglyLinkedList<User> usersName;
+    private SinglyLinkedList<User> usersTraditional;
+    private SinglyLinkedList<User> usersReach;
+    
     private String name;
 
     // ----------------------------------------------------------
@@ -24,8 +26,10 @@ public class Month
      */
     public Month(SinglyLinkedList<User> input, String month)
     {
-        users = input;
         name = month;
+        sortChannelName(input);
+        sortEngagementTraditional(input);
+        sortEngagementReach(input);
     }
 
 
@@ -33,7 +37,7 @@ public class Month
     /**
      * Sorts by the channel name
      */
-    public void sortChannelName()
+    public void sortChannelName(SinglyLinkedList<User> input)
     {
         
     }
@@ -43,7 +47,7 @@ public class Month
     /**
      * Sorts by traditional engagement
      */
-    public void sortEngagementTraditional()
+    public void sortEngagementTraditional(SinglyLinkedList<User> input)
     {
         
     }
@@ -53,7 +57,7 @@ public class Month
     /**
      * Sorts by reach engagement
      */
-    public void sortEngagementReach()
+    public void sortEngagementReach(SinglyLinkedList<User> input)
     {
 
     }
