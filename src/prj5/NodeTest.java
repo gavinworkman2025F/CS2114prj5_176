@@ -37,6 +37,10 @@ public class NodeTest
     private Node<String> test1;
     private Node<String> test2;
 
+    // ----------------------------------------------------------
+    /**
+     * Sets up for test methods
+     */
     public void setUp()
     {
         test2 = new Node<String>("test2", null);

@@ -56,7 +56,7 @@ public class SinglyLinkedList<T>
 
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
+     * Adds an object at a certain index
      * 
      * @param index
      *            the index to add the data at in the list

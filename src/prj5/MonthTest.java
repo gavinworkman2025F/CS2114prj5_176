@@ -28,19 +28,22 @@ public class MonthTest
     extends TestCase
 {
     private Month m1;
-    private SinglyLinkedList<User> list1;
     private User u1;
     private User u2;
     private User u3;
     private User u4;
 
+    // ----------------------------------------------------------
+    /**
+     * Sets up for test methods
+     */
     public void setUp()
     {
         u2 = new User("user2", "channel1", "country1", 100, 100, 100, 200, 100);
         u1 = new User("user1", "channel2", "country1", 100, 100, 200, 100, 100);
         u3 = new User("user3", "channel3", "country1", 100, 100, 300, 300, 100);
         u4 = new User("user4", "channel4", "country1", 100, 100, 50, 50, 100);
-        list1 = new SinglyLinkedList<User>();
+        SinglyLinkedList<User> list1 = new SinglyLinkedList<User>();
         list1.add(u1);
         list1.add(u2);
         list1.add(u3);

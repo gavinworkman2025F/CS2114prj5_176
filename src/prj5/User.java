@@ -42,6 +42,14 @@ public class User
      *            the channel name of the user
      * @param country
      *            the country of the user
+     * @param comments
+     *            number of comments
+     * @param likes
+     *            number of likes
+     * @param followers
+     *            number of followers
+     * @param views
+     *            number of views
      * @param numPosts
      *            the number of posts by the user
      */
@@ -128,6 +136,8 @@ public class User
     /**
      * Compares two users by comparing their name. eg.) A>B
      * 
+     * @param other
+     *            other user to be compared
      * @return A positive number if name is greater than object compared to,
      *             negative is less, and 0 ifequal.
      */
