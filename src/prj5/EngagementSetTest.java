@@ -33,7 +33,7 @@ public class EngagementSetTest
 
     public void setUp()
     {
-        a = new EngagementSet(5, 5, 10, 15, "January");
+        a = new EngagementSet(5, 5, 10, 15);
     }
 
 
@@ -99,23 +99,13 @@ public class EngagementSetTest
 
     // ----------------------------------------------------------
     /**
-     * Tests getMonth
-     */
-    public void testGetMonth()
-    {
-        assertEquals("January", a.getMonth());
-    }
-
-
-    // ----------------------------------------------------------
-    /**
      * Tests compareTo
      */
     public void testCompareTo()
     {
-        EngagementSet b = new EngagementSet(4, 4, 10, 15, "March");
-        EngagementSet c = new EngagementSet(6, 6, 10, 15, "April");
-        EngagementSet d = new EngagementSet(5, 5, 10, 15, "March");
+        EngagementSet b = new EngagementSet(4, 4, 10, 15);
+        EngagementSet c = new EngagementSet(6, 6, 10, 15);
+        EngagementSet d = new EngagementSet(5, 5, 10, 15);
 
         assertEquals(1, a.compareTo(b));
         assertEquals(0, a.compareTo(d));
@@ -129,9 +119,9 @@ public class EngagementSetTest
      */
     public void testCompareToReach()
     {
-        EngagementSet b = new EngagementSet(4, 4, 10, 15, "March");
-        EngagementSet c = new EngagementSet(6, 6, 10, 15, "April");
-        EngagementSet d = new EngagementSet(5, 5, 10, 15, "March");
+        EngagementSet b = new EngagementSet(4, 4, 10, 15);
+        EngagementSet c = new EngagementSet(6, 6, 10, 15);
+        EngagementSet d = new EngagementSet(5, 5, 10, 15);
 
         assertEquals(1, a.compareToReach(b));
         assertEquals(0, a.compareToReach(d));

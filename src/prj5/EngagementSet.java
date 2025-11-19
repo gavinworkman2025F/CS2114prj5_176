@@ -31,7 +31,6 @@ public class EngagementSet
     private int likes;
     private int followers;
     private int views;
-    private String month;
 
     // ----------------------------------------------------------
     /**
@@ -45,16 +44,13 @@ public class EngagementSet
      *            is # of followers
      * @param v
      *            is # of views
-     * @param m
-     *            is # of months
      */
-    public EngagementSet(int c, int l, int f, int v, String m)
+    public EngagementSet(int c, int l, int f, int v)
     {
         comments = c;
         likes = l;
         followers = f;
         views = v;
-        month = m;
     }
 
 
@@ -129,18 +125,6 @@ public class EngagementSet
     public int getViews()
     {
         return views;
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * Getter for the month
-     * 
-     * @return this engagement set's month
-     */
-    public String getMonth()
-    {
-        return month;
     }
 
 
