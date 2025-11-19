@@ -102,7 +102,7 @@ public class User
      * 
      * @return the engagementSets
      */
-    public EngagementSet getEngagementSets()
+    public EngagementSet getEngagementSet()
     {
         return engagement;
     }
