@@ -10,6 +10,7 @@ package prj5;
 public class Month
 {
     private SinglyLinkedList<User> users;
+    private SinglyLinkedList<User> sortedUsers;
     private String name;
 
     // ----------------------------------------------------------
@@ -34,7 +35,7 @@ public class Month
      */
     public void sortChannelName()
     {
-
+        
     }
 
 
@@ -44,7 +45,7 @@ public class Month
      */
     public void sortEngagementTraditional()
     {
-
+        
     }
 
 
