@@ -43,7 +43,7 @@ public class Month
      * @param input
      *            user list to be sorted
      */
-    public void sortChannelName(SinglyLinkedList<User> input)
+    private void sortChannelName(SinglyLinkedList<User> input)
     {
         Node<User> current = input.getHead();
 
@@ -75,7 +75,7 @@ public class Month
      * @param input
      *            user list to be sorted
      */
-    public void sortEngagementTraditional(SinglyLinkedList<User> input)
+    private void sortEngagementTraditional(SinglyLinkedList<User> input)
     {
         Node<User> current = input.getHead();
 
@@ -107,7 +107,7 @@ public class Month
      * @param input
      *            user list to be sorted
      */
-    public void sortEngagementReach(SinglyLinkedList<User> input)
+    private void sortEngagementReach(SinglyLinkedList<User> input)
     {
         Node<User> current = input.getHead();
 
@@ -129,5 +129,17 @@ public class Month
 
             current = current.getNext();
         }
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Gets the name of the month
+     * 
+     * @return month
+     */
+    public String getName()
+    {
+        return name;
     }
 }
