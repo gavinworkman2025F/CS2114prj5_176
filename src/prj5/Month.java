@@ -39,10 +39,32 @@ public class Month
     // ----------------------------------------------------------
     /**
      * Sorts by the channel name
+     * 
+     * @param input
+     *            user list to be sorted
      */
     public void sortChannelName(SinglyLinkedList<User> input)
     {
+        Node<User> current = input.getHead();
 
+        while (current != null)
+        {
+            User data = current.getData();
+            Node<User> temp = usersName.getHead();
+
+            int insertIndex = 0;
+
+            while (temp != null && temp.getData().getChannelName()
+                .compareToIgnoreCase(data.getChannelName()) < 0)
+            {
+                temp = temp.getNext();
+                insertIndex++;
+            }
+
+            usersName.add(insertIndex, data);
+
+            current = current.getNext();
+        }
     }
 
 
@@ -71,7 +93,6 @@ public class Month
                 insertIndex++;
             }
 
-            // Insert at calculated index
             usersTraditional.add(insertIndex, data);
 
             current = current.getNext();
@@ -82,9 +103,31 @@ public class Month
     // ----------------------------------------------------------
     /**
      * Sorts by reach engagement
+     * 
+     * @param input
+     *            user list to be sorted
      */
     public void sortEngagementReach(SinglyLinkedList<User> input)
     {
+        Node<User> current = input.getHead();
 
+        while (current != null)
+        {
+            User data = current.getData();
+            Node<User> temp = usersReach.getHead();
+
+            int insertIndex = 0;
+
+            while (temp != null && temp.getData().getEngagementSet()
+                .compareToReach(data.getEngagementSet()) > 0)
+            {
+                temp = temp.getNext();
+                insertIndex++;
+            }
+
+            usersReach.add(insertIndex, data);
+
+            current = current.getNext();
+        }
     }
 }
