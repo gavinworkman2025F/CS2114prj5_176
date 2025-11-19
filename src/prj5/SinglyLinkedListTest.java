@@ -1,3 +1,24 @@
+// Project 5 Fall 2025
+// Virginia Tech Honor Code Pledge:
+
+//
+
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+
+// -- Gavin Workman (gavinworkman)
+
+// LLM Statement:
+
+// During the preparation of this assignment, I, Gavin Workman, used Gemini in
+// this file to help achieve 100% code coverage through my tests.
+// After using this tool, I reviewed and edited the content as needed to ensure
+// its accuracy and take full responsibility for the content in relation to
+// grading. I understand that I am responsible for being able to complete this
+// work without the use of assistance.
+
 package prj5;
 
 import student.TestCase;
@@ -6,7 +27,7 @@ import student.TestCase;
 /**
  * Tests the methods of the SinglyLinkedList class
  * 
- * @author gjwor !!include in ai statement
+ * @author gjwor
  * @version Nov 18, 2025
  */
 public class SinglyLinkedListTest
