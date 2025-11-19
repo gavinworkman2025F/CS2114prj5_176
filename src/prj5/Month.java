@@ -142,4 +142,58 @@ public class Month
     {
         return name;
     }
+
+
+    // ----------------------------------------------------------
+    /**
+     * toString (for console)
+     * 
+     * @return string of channel names and traditional/reach engagement rates
+     */
+    public String toString()
+    {
+        Node<User> curr = usersName.getHead();
+
+        String s = "";
+        for (int i = 0; i < usersName.size(); i++)
+        {
+            s += curr.getData().getChannelName() + "\n";
+            String trad;
+            if (curr.getData().getEngagementSet()
+                .calculateTraditionalEngagement() < 0)
+            {
+                trad = "N/A";
+            }
+            else
+            {
+                trad = String.valueOf(
+                    curr.getData().getEngagementSet()
+                        .calculateTraditionalEngagement());
+            }
+            s += "traditional: " + trad + "\n==========" + "\n";
+            curr = curr.getNext();
+        }
+        s += "**********\n" + "**********\n";
+
+        curr = usersName.getHead();
+        for (int i = 0; i < usersName.size(); i++)
+        {
+            s += curr.getData().getChannelName() + "\n";
+            String rea;
+            if (curr.getData().getEngagementSet()
+                .calculateReachEngagement() < 0)
+            {
+                rea = "N/A";
+            }
+            else
+            {
+                rea = String.valueOf(
+                    curr.getData().getEngagementSet()
+                        .calculateReachEngagement());
+            }
+            s += "traditional: " + rea + "\n==========" + "\n";
+            curr = curr.getNext();
+        }
+        return s;
+    }
 }
