@@ -42,9 +42,10 @@ public class InputFileReader
             int comments = toInt(values[8]);
             int views = toInt(values[9]);
 
-            //if the user is already in the list then just add the new engagegment set
+            // if the user is already in the list then just add the new
+            // engagegment set
             users.add(new User(month, username, channel, country, mainTopic));
-            //else add both user and users new engagement set
+            // else add both user and users new engagement set
 
         } // end while
     }

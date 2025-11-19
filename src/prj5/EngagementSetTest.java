@@ -56,7 +56,42 @@ public class EngagementSetTest
         assertEquals(66.7, a.calculateReachEngagement(), 0.000000001);
     }
 
-
+    // ----------------------------------------------------------
+    /**
+     * Tests getComments
+     */
+    public void testGetComments()
+    {
+        assertEquals(5, a.getComments());
+    }
+    
+ // ----------------------------------------------------------
+    /**
+     * Tests getComments
+     */
+    public void testGetLikes()
+    {
+        assertEquals(5, a.getLikes());
+    }
+    
+ // ----------------------------------------------------------
+    /**
+     * Tests getComments
+     */
+    public void testGetFollowers()
+    {
+        assertEquals(10, a.getFollowers());
+    }
+    
+ // ----------------------------------------------------------
+    /**
+     * Tests getComments
+     */
+    public void testGetViews()
+    {
+        assertEquals(15, a.getViews());
+    }
+    
     // ----------------------------------------------------------
     /**
      * Tests getMonth

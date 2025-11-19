@@ -27,8 +27,10 @@ package prj5;
 public class EngagementSet
     implements Comparable<EngagementSet>
 {
-    private double traditionalEngagementRate;
-    private double reachEngagementRate;
+    private int comments;
+    private int likes;
+    private int followers;
+    private int views;
     private String month;
 
     // ----------------------------------------------------------
@@ -36,19 +38,22 @@ public class EngagementSet
      * Create a new EngagementSet object.
      * 
      * @param c
+     *            is # of comments
      * @param l
+     *            is # of likes
      * @param f
+     *            is # of followers
      * @param v
+     *            is # of views
      * @param m
+     *            is # of months
      */
     public EngagementSet(int c, int l, int f, int v, String m)
     {
-        double x = (c + l) * 100.0 / f;
-        traditionalEngagementRate = Math.round(x * 10.0) / 10.0;
-
-        double y = (c + l) * 100.0 / v;
-        reachEngagementRate = Math.round(y * 10.0) / 10.0;
-
+        comments = c;
+        likes = l;
+        followers = f;
+        views = v;
         month = m;
     }
 
@@ -61,7 +66,8 @@ public class EngagementSet
      */
     public double calculateTraditionalEngagement()
     {
-        return traditionalEngagementRate;
+        double x = (comments + likes) * 100.0 / followers;
+        return Math.round(x * 10.0) / 10.0;
     }
 
 
@@ -73,7 +79,56 @@ public class EngagementSet
      */
     public double calculateReachEngagement()
     {
-        return reachEngagementRate;
+        double x = (comments + likes) * 100.0 / views;
+        return Math.round(x * 10.0) / 10.0;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the number comments
+     * 
+     * @return this engagement set's comments
+     */
+    public int getComments()
+    {
+        return comments;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the number of likes
+     * 
+     * @return this engagement set's likes
+     */
+    public int getLikes()
+    {
+        return likes;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the number of followers
+     * 
+     * @return this engagement set's followers
+     */
+    public int getFollowers()
+    {
+        return followers;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for the number of views
+     * 
+     * @return this engagement set's views
+     */
+    public int getViews()
+    {
+        return views;
     }
 
 
