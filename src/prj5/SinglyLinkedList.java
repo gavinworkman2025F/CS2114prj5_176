@@ -22,25 +22,33 @@ public class SinglyLinkedList<T>
     public void add(int index, T data)
     {
 
-        if (head == null)
+        if (index < 0 || index > size)
         {
-            Node<T> node = new Node<T>(data, null);
-            head = node;
-            size++;
+            throw new IndexOutOfBoundsException(
+                "Index: " + index + ", Size: " + size);
         }
+
+        if (index == 0)
+        {
+            Node<T> newNode = new Node<T>(data, head);
+            head = newNode;
+        }
+
         else
         {
-            Node<T> curr = head;
 
-            for (int i = 0; i < index; i++) // iterate through list to get to
-                                            // index
+            Node<T> curr = head;
+            for (int i = 0; i < index - 1; i++)
             {
                 curr = curr.getNext();
             }
 
-            Node<T> node = new Node<T>(data, curr.getNext());
-            size++;
+            Node<T> newNode = new Node<T>(data, curr.getNext());
+
+            curr.setNext(newNode);
         }
+
+        size++;
     }
 
 
@@ -80,50 +88,60 @@ public class SinglyLinkedList<T>
         {
             return false;
         }
+
+        // Remove the head
         if (head.getData().equals(data))
         {
             head = head.getNext();
+            size--;
             return true;
         }
 
+        // Remove from middle or end
         Node<T> curr = head;
 
-        while (!curr.getNext().getData().equals(data))
+        // Loop while the next node exists and is not the one we want
+        while (curr.getNext() != null && !curr.getNext().getData().equals(data))
         {
             curr = curr.getNext();
         }
 
+        // If curr.getNext() is null, we reached the end and didn't find the
+        // data
+        if (curr.getNext() == null)
+        {
+            return false;
+        }
+
         curr.setNext(curr.getNext().getNext());
+        size--;
         return true;
     }
 
 
     public boolean contains(T data)
     {
-        if (isEmpty() || data == null)
+        if (data == null)
         {
             return false;
-        }
-
-        if (head.getData().equals(data))
-        {
-            return true;
         }
 
         Node<T> curr = head;
 
-        while (!curr.getNext().getData().equals(data))
+        // Keep looping as long as we haven't fallen off the list
+        while (curr != null)
         {
+            // Check the current node's data
+            if (curr.getData().equals(data))
+            {
+                return true;
+            }
+            // Move to the next node
             curr = curr.getNext();
         }
 
-        if (curr.getNext() == null) // we got to end of list w/o finding data
-        {
-            return false;
-        }
-
-        return true; // we aren't at the end of the list, we found the data
-
+        // If we finished the loop, we never found it
+        return false;
     }
 
 
