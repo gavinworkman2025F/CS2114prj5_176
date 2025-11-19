@@ -28,7 +28,6 @@ public class InputFileReader
         inStream.nextLine();// skip header
         boolean first = true;
         SinglyLinkedList<User> users = new SinglyLinkedList<User>();
-        String currMonth = null;
         String prevMonth = null;
         while (inStream.hasNextLine())
         {
@@ -47,15 +46,15 @@ public class InputFileReader
             int views = toInt(values[9]);
 
             if(first) {
-                currMonth = month;
-                prevMonth = currMonth;
+                prevMonth = month;
+                first = false;
             }
-            if(currMonth != prevMonth) {
+            if(month != prevMonth) {
                 Month newMonthSet = new Month(users, prevMonth);
                 users = new SinglyLinkedList<User>();
+                prevMonth = month;
             }
             
-            currMonth = month;
             users.add(new User(username, channel, country, comments, likes, followers, views, posts));
             
             
