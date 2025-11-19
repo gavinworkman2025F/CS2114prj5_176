@@ -31,6 +31,10 @@ public class EngagementSetTest
 {
     private EngagementSet a;
 
+    // ----------------------------------------------------------
+    /**
+     * Sets up the test class
+     */
     public void setUp()
     {
         a = new EngagementSet(5, 5, 10, 15);
@@ -43,7 +47,10 @@ public class EngagementSetTest
      */
     public void testCalculateTraditionalEngagementRate()
     {
+        EngagementSet b = new EngagementSet(4, 4, 0, 15);
         assertEquals(100.0, a.calculateTraditionalEngagement(), 0.000000001);
+        assertEquals(-1, b.calculateTraditionalEngagement(), 0.000000001);
+
     }
 
 
@@ -53,7 +60,11 @@ public class EngagementSetTest
      */
     public void testCalculateReachEngagementRate()
     {
+        EngagementSet b = new EngagementSet(4, 4, 10, 0);
+
         assertEquals(66.7, a.calculateReachEngagement(), 0.000000001);
+        assertEquals(-1, b.calculateReachEngagement(), 0.000000001);
+
     }
 
 
