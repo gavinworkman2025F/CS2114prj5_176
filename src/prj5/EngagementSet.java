@@ -145,6 +145,7 @@ public class EngagementSet
 
 
     @Override
+    // default compareTo method for traditional engagement comparison
     public int compareTo(EngagementSet o)
     {
         if (this.calculateTraditionalEngagement() > o
@@ -154,6 +155,29 @@ public class EngagementSet
         }
         else if (this.calculateTraditionalEngagement() < o
             .calculateTraditionalEngagement())
+        {
+            return -1;
+        }
+        return 0;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * compareTo method for reach engagement comparison instead of traditional
+     * 
+     * @param o
+     *            is other EngagementSet
+     * @return positive if this is greater, negative if less than other, 0 if
+     *             equal
+     */
+    public int compareToReach(EngagementSet o)
+    {
+        if (this.calculateReachEngagement() > o.calculateReachEngagement())
+        {
+            return 1;
+        }
+        else if (this.calculateReachEngagement() < o.calculateReachEngagement())
         {
             return -1;
         }

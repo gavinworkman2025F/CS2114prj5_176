@@ -56,6 +56,7 @@ public class EngagementSetTest
         assertEquals(66.7, a.calculateReachEngagement(), 0.000000001);
     }
 
+
     // ----------------------------------------------------------
     /**
      * Tests getComments
@@ -64,8 +65,9 @@ public class EngagementSetTest
     {
         assertEquals(5, a.getComments());
     }
-    
- // ----------------------------------------------------------
+
+
+    // ----------------------------------------------------------
     /**
      * Tests getComments
      */
@@ -73,8 +75,9 @@ public class EngagementSetTest
     {
         assertEquals(5, a.getLikes());
     }
-    
- // ----------------------------------------------------------
+
+
+    // ----------------------------------------------------------
     /**
      * Tests getComments
      */
@@ -82,8 +85,9 @@ public class EngagementSetTest
     {
         assertEquals(10, a.getFollowers());
     }
-    
- // ----------------------------------------------------------
+
+
+    // ----------------------------------------------------------
     /**
      * Tests getComments
      */
@@ -91,7 +95,8 @@ public class EngagementSetTest
     {
         assertEquals(15, a.getViews());
     }
-    
+
+
     // ----------------------------------------------------------
     /**
      * Tests getMonth
@@ -115,6 +120,22 @@ public class EngagementSetTest
         assertEquals(1, a.compareTo(b));
         assertEquals(0, a.compareTo(d));
         assertEquals(-1, a.compareTo(c));
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Tests compareTo
+     */
+    public void testCompareToReach()
+    {
+        EngagementSet b = new EngagementSet(4, 4, 10, 15, "March");
+        EngagementSet c = new EngagementSet(6, 6, 10, 15, "April");
+        EngagementSet d = new EngagementSet(5, 5, 10, 15, "March");
+
+        assertEquals(1, a.compareToReach(b));
+        assertEquals(0, a.compareToReach(d));
+        assertEquals(-1, a.compareToReach(c));
     }
 
 }
