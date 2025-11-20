@@ -50,6 +50,18 @@ public class NodeTest
 
     // ----------------------------------------------------------
     /**
+     * Tests the empty node constructor
+     */
+    public void testNodeEmpty()
+    {
+        Node<String> test3 = new Node<String>();
+        assertNull(test3.getData());
+        assertNull(test3.getNext());
+    }
+
+
+    // ----------------------------------------------------------
+    /**
      * tests the getNext method
      */
     public void testGetNext()
