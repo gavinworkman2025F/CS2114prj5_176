@@ -122,7 +122,62 @@ public class InputFileReader
             Month lastMonth = new Month(users, prevMonth);
             months.add(lastMonth);
         }
+        
+        SinglyLinkedList<User> q1U = new SinglyLinkedList<User>();
+        SinglyLinkedList<User> j = getMonth("January").getNames();
+        SinglyLinkedList<User> f = getMonth("February").getNames();
+        SinglyLinkedList<User> m = getMonth("March").getNames();
 
+        for (int i = 0; i < users.size(); i++)
+        {
+
+            Node<User> uJ = j.getHead();
+            Node<User> uF = f.getHead();
+            Node<User> uM = m.getHead();
+
+            String n;
+            String cN;
+            String c;
+            int com = 0;
+            int lik = 0;
+            int fol = 0;
+            int vie = 0;
+            int nPo = 0;
+
+            for (int k = 0; k < i; k++)
+            {
+                uJ = uJ.getNext();
+                uF = uF.getNext();
+                uM = uM.getNext();
+            }
+
+            n = uJ.getData().getUsername();
+            cN = uJ.getData().getChannelName();
+            c = uJ.getData().getCountry();
+
+            com += uJ.getData().getEngagementSet().getComments();
+            com += uF.getData().getEngagementSet().getComments();
+            com += uM.getData().getEngagementSet().getComments();
+
+            lik += uJ.getData().getEngagementSet().getLikes();
+            lik += uF.getData().getEngagementSet().getLikes();
+            lik += uM.getData().getEngagementSet().getLikes();
+
+            fol += uM.getData().getEngagementSet().getFollowers();
+
+            vie += uJ.getData().getEngagementSet().getViews();
+            vie += uF.getData().getEngagementSet().getViews();
+            vie += uM.getData().getEngagementSet().getViews();
+
+            nPo += uJ.getData().getPosts();
+            nPo += uF.getData().getPosts();
+            nPo += uM.getData().getPosts();
+
+            User x = new User(n, cN, c, com, lik, fol, vie, nPo);
+            q1U.add(x);
+        }
+        Month q1 = new Month(q1U, "Q1");
+        months.add(q1);
     }
 
 
@@ -345,11 +400,21 @@ public class InputFileReader
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * 
+     * @param name
+     *            is name of month
+     * @return
+     */
     public Month getMonth(String name)
     {
         Node<Month> current = months.getHead();
-        while (current != null) {
-            if (current.getData().getMonthName().equals(name)) {
+        while (current != null)
+        {
+            if (current.getData().getMonthName().equals(name))
+            {
                 return current.getData();
             }
             current = current.getNext();
