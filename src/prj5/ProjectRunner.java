@@ -58,10 +58,7 @@ public class ProjectRunner
         }
         if (showGUI)
         {
-            /*
-             * TODO: For final Submission - Should have the GUI display for the
-             * input data
-             */
+            new DataWindow(filer);
         }
     }
 }
