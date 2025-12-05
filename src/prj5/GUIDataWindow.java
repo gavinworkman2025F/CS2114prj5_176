@@ -30,7 +30,7 @@ import java.awt.*;
  * @author mjseo
  * @version Dec 4, 2025
  */
-public class DataWindow
+public class GUIDataWindow
 {
     private InputFileReader reader;
     private Window window;
@@ -49,7 +49,7 @@ public class DataWindow
      * @param reader
      *            the file read and sorted
      */
-    public DataWindow(InputFileReader reader)
+    public GUIDataWindow(InputFileReader reader)
     {
         this.reader = reader;
         window = new Window("mjseo tim0thy gavinworkman wbovatsek29");
@@ -343,8 +343,20 @@ public class DataWindow
         {
             User user = head.getData();
 
-            int barHeight = maxBarHeight - (i * (maxBarHeight / size));
-            barHeight = Math.max(barHeight, 25);
+            int barHeight;
+            if (useTraditional)
+            {
+                barHeight = Math.min(
+                    (int)(user.getEngagementSet()
+                        .calculateTraditionalEngagement() * 2),
+                    maxBarHeight);
+            }
+            else
+            {
+                barHeight = Math.min(
+                    (int)(user.getEngagementSet().calculateReachEngagement() *15),
+                    maxBarHeight);
+            }
 
             int y = windowHeight - bottomMargin - barHeight;
 

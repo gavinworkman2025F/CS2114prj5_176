@@ -58,7 +58,7 @@ public class ProjectRunner
         }
         if (showGUI)
         {
-            new DataWindow(filer);
+            new GUIDataWindow(filer);
         }
     }
 }
