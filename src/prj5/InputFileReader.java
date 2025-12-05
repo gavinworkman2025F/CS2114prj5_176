@@ -223,7 +223,7 @@ public class InputFileReader
      *            is name of user
      * @return traditional engagement rates for Q1
      */
-    public double calcQOneTrad(String n)
+    public String calcQOneTrad(String n)
     {
         int totalComments = 0;
         int totalLikes = 0;
@@ -288,9 +288,9 @@ public class InputFileReader
         if (totalFollowers != 0)
         {
             double z = (totalComments + totalLikes) * 100.0 / totalFollowers;
-            return Math.round(z * 10.0) / 10.0;
+            return String.valueOf(Math.round(z * 10.0) / 10.0);
         }
-        return 0.0;
+        return "N/A";
     }
 
 
@@ -302,7 +302,7 @@ public class InputFileReader
      *            is name of user
      * @return reach engagement rates for Q1
      */
-    public double calcQOneReach(String n)
+    public String calcQOneReach(String n)
     {
         int totalComments = 0;
         int totalLikes = 0;
@@ -370,13 +370,13 @@ public class InputFileReader
         if (totalViews != 0)
         {
             double z = (totalComments + totalLikes) * 100.0 / totalViews;
-            return Math.round(z * 10.0) / 10.0;
+            return String.valueOf(Math.round(z * 10.0) / 10.0);
         }
-        return 0.0;
+        return "N/A";
     }
 
 
-    // ----------------------------------------------------------
+    // ---------------------------µ-------------------------------
     /**
      * Getter for Q1 Traditional Engagement
      * 
