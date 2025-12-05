@@ -63,96 +63,96 @@ public class DataWindow
 
         sortEngagement = new Button("Sort by Engagement Rate");
         window.addButton(sortEngagement, WindowSide.NORTH);
-        sortChannel.onClick(this, "clickedSortEngagement");
+        sortEngagement.onClick(this, "clickedSortEngagement");
 
         quit = new Button("Quit");
         window.addButton(quit, WindowSide.NORTH);
-        sortChannel.onClick(this, "clickedQuit");
+        quit.onClick(this, "clickedQuit");
 
         jan = new Button("January");
         window.addButton(jan, WindowSide.SOUTH);
-        sortChannel.onClick(this, "clickedJan");
+        jan.onClick(this, "clickedJan");
 
         feb = new Button("Febuary");
         window.addButton(feb, WindowSide.SOUTH);
-        sortChannel.onClick(this, "clickedFeb");
+        feb.onClick(this, "clickedFeb");
 
         mar = new Button("March");
         window.addButton(mar, WindowSide.SOUTH);
-        sortChannel.onClick(this, "clickedMar");
+        mar.onClick(this, "clickedMar");
 
         quarter = new Button("First Quarter (Jan - March)");
         window.addButton(quarter, WindowSide.SOUTH);
-        sortChannel.onClick(this, "clickedQuarter");
+        quarter.onClick(this, "clickedQuarter");
 
         traditionalEngagement = new Button("Traditional Engagement Rate");
         window.addButton(traditionalEngagement, WindowSide.WEST);
-        sortChannel.onClick(this, "clickedTraditionalEngagement");
+        traditionalEngagement.onClick(this, "clickedTraditionalEngagement");
 
         reachEngagement = new Button("Reach Engagement Rate");
         window.addButton(reachEngagement, WindowSide.WEST);
-        sortChannel.onClick(this, "clickedReachEngagement");
+        reachEngagement.onClick(this, "clickedReachEngagement");
 
         update();
     }
 
 
-    public void clickedSortChannel()
+    public void clickedSortChannel(Button button)
     {
         sortByEngagement = false;
         update();
     }
 
 
-    public void clickedSortEngagement()
+    public void clickedSortEngagement(Button button)
     {
         sortByEngagement = true;
         update();
     }
 
 
-    public void clickedTraditionalEngagement()
+    public void clickedTraditionalEngagement(Button button)
     {
         useTraditional = true;
         update();
     }
 
 
-    public void clickedReachEngagement()
+    public void clickedReachEngagement(Button button)
     {
         useTraditional = false;
         update();
     }
 
 
-    public void clickedQuit()
+    public void clickedQuit(Button button)
     {
         System.exit(0);
     }
 
 
-    public void clickedJan()
+    public void clickedJan(Button button)
     {
         currentMonth = "January";
         update();
     }
 
 
-    public void clickedFeb()
+    public void clickedFeb(Button button)
     {
         currentMonth = "Febuary";
         update();
     }
 
 
-    public void clickedMar()
+    public void clickedMar(Button button)
     {
         currentMonth = "March";
         update();
     }
 
 
-    public void clickedQuarter()
+    public void clickedQuarter(Button button)
     {
         currentMonth = "Quarter";
         update();
@@ -168,6 +168,6 @@ public class DataWindow
 
     private void drawShapes()
     {
-        
+
     }
 }
