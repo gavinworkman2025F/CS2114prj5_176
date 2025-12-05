@@ -97,38 +97,31 @@ public class DataWindow
     }
 
 
-    private void update()
-    {
-        window.removeAllShapes();
-        drawShapes();
-    }
-
-
-    private void drawShapes(String, int, int) {}
-
-
-    private void updateText()
-    {
-    }
-
-
     public void clickedSortChannel()
     {
+        sortByEngagement = false;
+        update();
     }
 
 
     public void clickedSortEngagement()
     {
+        sortByEngagement = true;
+        update();
     }
 
 
     public void clickedTraditionalEngagement()
     {
+        useTraditional = true;
+        update();
     }
 
 
     public void clickedReachEngagement()
     {
+        useTraditional = false;
+        update();
     }
 
 
@@ -140,22 +133,41 @@ public class DataWindow
 
     public void clickedJan()
     {
-        
+        currentMonth = "January";
+        update();
     }
 
 
     public void clickedFeb()
     {
+        currentMonth = "Febuary";
+        update();
     }
 
 
     public void clickedMar()
     {
+        currentMonth = "March";
+        update();
     }
 
 
     public void clickedQuarter()
     {
+        currentMonth = "Quarter";
+        update();
     }
 
+
+    private void update()
+    {
+        window.removeAllShapes();
+        drawShapes();
+    }
+
+
+    private void drawShapes()
+    {
+        
+    }
 }
