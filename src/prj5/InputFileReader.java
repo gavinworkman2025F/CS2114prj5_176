@@ -122,7 +122,7 @@ public class InputFileReader
             Month lastMonth = new Month(users, prevMonth);
             months.add(lastMonth);
         }
-        
+
     }
 
 
@@ -344,6 +344,19 @@ public class InputFileReader
         return q1Reach;
     }
 
+
+    public Month getMonth(String name)
+    {
+        Node<Month> current = months.getHead();
+        while (current != null) {
+            if (current.getData().getMonthName().equals(name)) {
+                return current.getData();
+            }
+            current = current.getNext();
+        }
+        return null;
+    }
+
     // ----------------------------------------------------------
     /**
      * toString for Q1
@@ -356,7 +369,7 @@ public class InputFileReader
      * reach "4000" // then add to string with format SinglyLinkedList<User>
      * name = months.getHead().getData().getNames(); Node<User> curr1 =
      * name.getHead(); String output = ""; while (curr1 != null) { String n =
-     * curr1.getData().getChannelName(); output +=
+     * curr1.getData().getChannelName(); output +=5
      * curr1.getData().getChannelName() + "\ntraditional: " + calcQOneTrad(n) +
      * "\n" + "==========" + "\n"; curr1 = curr1.getNext(); } output +=
      * "**********\n" + "**********\n"; SinglyLinkedList<User> reach =
