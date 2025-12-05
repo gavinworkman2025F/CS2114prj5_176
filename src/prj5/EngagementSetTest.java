@@ -33,7 +33,7 @@ public class EngagementSetTest
 
     // ----------------------------------------------------------
     /**
-     * Sets up the test class
+     * Sets up the test class   
      */
     public void setUp()
     {

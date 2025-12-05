@@ -31,6 +31,8 @@ public class InputFileReader
 {
     private String inputFile;
     private SinglyLinkedList<Month> months;
+    private double q1Trad;
+    private double q1Reach;
 
     // ----------------------------------------------------------
     /**
@@ -43,6 +45,8 @@ public class InputFileReader
     {
         this.inputFile = inputFile;
         readInputFile(inputFile);
+        q1Trad = 0.0;
+        q1Reach = 0.0;
     }// new DataWindow(EngagementSet)
 
 
@@ -118,6 +122,7 @@ public class InputFileReader
             Month lastMonth = new Month(users, prevMonth);
             months.add(lastMonth);
         }
+        
     }
 
 
@@ -163,7 +168,7 @@ public class InputFileReader
      *            is name of user
      * @return traditional engagement rates for Q1
      */
-    public String calcQOneTrad(String n)
+    public double calcQOneTrad(String n)
     {
         int totalComments = 0;
         int totalLikes = 0;
@@ -228,9 +233,9 @@ public class InputFileReader
         if (totalFollowers != 0)
         {
             double z = (totalComments + totalLikes) * 100.0 / totalFollowers;
-            return String.valueOf(Math.round(z * 10.0) / 10.0);
+            return Math.round(z * 10.0) / 10.0;
         }
-        return "N/A";
+        return 0.0;
     }
 
 
@@ -242,7 +247,7 @@ public class InputFileReader
      *            is name of user
      * @return reach engagement rates for Q1
      */
-    public String calcQOneReach(String n)
+    public double calcQOneReach(String n)
     {
         int totalComments = 0;
         int totalLikes = 0;
@@ -310,11 +315,34 @@ public class InputFileReader
         if (totalViews != 0)
         {
             double z = (totalComments + totalLikes) * 100.0 / totalViews;
-            return String.valueOf(Math.round(z * 10.0) / 10.0);
+            return Math.round(z * 10.0) / 10.0;
         }
-        return "N/A";
+        return 0.0;
     }
 
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for Q1 Traditional Engagement
+     * 
+     * @return q1Trad
+     */
+    public double getQ1Trad()
+    {
+        return q1Trad;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Getter for Q1 Reach Engagement
+     * 
+     * @return q1Reach
+     */
+    public double getQ1Reach()
+    {
+        return q1Reach;
+    }
 
     // ----------------------------------------------------------
     /**
@@ -322,90 +350,35 @@ public class InputFileReader
      * 
      * @return string of the engagement rates in Q1
      */
-    public String toString()
-    {
-        // use calcQOne to get the output for each user (i.e. "3000.4000") and
-        // then split the string into trad "3000" and reach "4000"
-        // then add to string with format
-
-        SinglyLinkedList<User> name = months.getHead().getData().getNames();
-        Node<User> curr1 = name.getHead();
-        String output = "";
-
-        while (curr1 != null)
-        {
-            String n = curr1.getData().getChannelName();
-            output += curr1.getData().getChannelName() + "\ntraditional: "
-                + calcQOneTrad(n) + "\n" + "==========" + "\n";
-            curr1 = curr1.getNext();
-        }
-
-        output += "**********\n" + "**********\n";
-
-        SinglyLinkedList<User> reach = months.getHead().getData().getReach();
-        reach = sortQ1EngagementReach(reach);
-        Node<User> curr2 = reach.getHead();
-        while (curr2 != null)
-        {
-            String n = curr2.getData().getChannelName();
-            output += curr2.getData().getChannelName() + "\nreach: "
-                + calcQOneReach(n) + "\n" + "==========" + "\n";
-            curr2 = curr2.getNext();
-        }
-        return output;
-    }
-
-
-    private SinglyLinkedList<User> sortQ1EngagementReach(
-        SinglyLinkedList<User> input)
-    {
-        SinglyLinkedList<User> sorted = new SinglyLinkedList<User>();
-        Node<User> current = input.getHead();
-
-        while (current != null)
-        {
-            User data = current.getData();
-            Node<User> temp = sorted.getHead();
-            int insertIndex = 0;
-            double currentReach;
-            if (!calcQOneReach(current.getData().getChannelName())
-                .equals("N/A"))
-            {
-                currentReach = Double.parseDouble(
-                    calcQOneReach(current.getData().getChannelName()));
-            }
-            else
-            {
-                currentReach = -1;
-            }
-            while (temp != null)
-            {
-                double tempReach;
-                if (!calcQOneReach(temp.getData().getChannelName())
-                    .equals("N/A"))
-                {
-                    tempReach = Double.parseDouble(
-                        calcQOneReach(temp.getData().getChannelName()));
-                }
-                else
-                {
-                    tempReach = -1;
-                }
-
-                if (tempReach > currentReach)
-                {
-                    temp = temp.getNext();
-                    insertIndex++;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            sorted.add(insertIndex, data);
-            current = current.getNext();
-        }
-        return sorted;
-    }
-
+    /*
+     * public String toString() { // use calcQOne to get the output for each
+     * user (i.e. "3000.4000") and // then split the string into trad "3000" and
+     * reach "4000" // then add to string with format SinglyLinkedList<User>
+     * name = months.getHead().getData().getNames(); Node<User> curr1 =
+     * name.getHead(); String output = ""; while (curr1 != null) { String n =
+     * curr1.getData().getChannelName(); output +=
+     * curr1.getData().getChannelName() + "\ntraditional: " + calcQOneTrad(n) +
+     * "\n" + "==========" + "\n"; curr1 = curr1.getNext(); } output +=
+     * "**********\n" + "**********\n"; SinglyLinkedList<User> reach =
+     * months.getHead().getData().getReach(); reach =
+     * sortQ1EngagementReach(reach); Node<User> curr2 = reach.getHead(); while
+     * (curr2 != null) { String n = curr2.getData().getChannelName(); output +=
+     * curr2.getData().getChannelName() + "\nreach: " + calcQOneReach(n) + "\n"
+     * + "==========" + "\n"; curr2 = curr2.getNext(); } return output; }
+     * private SinglyLinkedList<User> sortQ1EngagementReach(
+     * SinglyLinkedList<User> input) { SinglyLinkedList<User> sorted = new
+     * SinglyLinkedList<User>(); Node<User> current = input.getHead(); while
+     * (current != null) { User data = current.getData(); Node<User> temp =
+     * sorted.getHead(); int insertIndex = 0; double currentReach; if
+     * (!calcQOneReach(current.getData().getChannelName()) .equals("N/A")) {
+     * currentReach = Double.parseDouble(
+     * calcQOneReach(current.getData().getChannelName())); } else { currentReach
+     * = -1; } while (temp != null) { double tempReach; if
+     * (!calcQOneReach(temp.getData().getChannelName()) .equals("N/A")) {
+     * tempReach = Double.parseDouble(
+     * calcQOneReach(temp.getData().getChannelName())); } else { tempReach = -1;
+     * } if (tempReach > currentReach) { temp = temp.getNext(); insertIndex++; }
+     * else { break; } } sorted.add(insertIndex, data); current =
+     * current.getNext(); } return sorted; }
+     */
 }
